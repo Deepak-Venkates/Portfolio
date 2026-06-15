@@ -1,0 +1,342 @@
+:root {
+    --about-primary: #181611;
+    --about-secondary: #8a7e60;
+    --about-accent: #f5f3f0;
+}
+
+.about-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--about-accent);
+    padding: 12px 40px;
+    background: var(--about-bg, #fff);
+    position: relative;
+    animation: slideDown 0.6s ease-out 0.2s forwards;
+}
+
+/* Slide-down animation for navbar */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+.about-header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.about-logo {
+    width: 28px;
+    height: 28px;
+    color: var(--about-primary);
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.about-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    letter-spacing: -0.015em;
+    color: var(--about-primary);
+    white-space: nowrap;
+}
+
+.about-header-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.about-nav {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+.about-nav a {
+    color: var(--about-primary);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+}
+
+.about-nav a:hover {
+    color: var(--about-secondary);
+}
+
+.about-resume-btn {
+    min-width: 84px;
+    height: 40px;
+    padding: 0 16px;
+    background: #f4c652;
+    color: var(--about-primary);
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.about-resume-btn:hover {
+    background: #eab308;
+    transform: scale(1.05);
+}
+
+/* Mobile Menu Toggle */
+.about-mobile-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 4px;
+    gap: 3px;
+    z-index: 110;
+}
+
+.about-mobile-toggle span {
+    width: 20px;
+    height: 2px;
+    background: var(--about-primary);
+    transition: all 0.3s ease;
+    border-radius: 1px;
+    transform-origin: center;
+}
+
+.about-mobile-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.about-mobile-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.about-mobile-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Tablet Responsive */
+@media (max-width: 900px) {
+    .about-header {
+        padding: 12px 24px;
+    }
+
+    .about-nav {
+        gap: 20px;
+    }
+
+    .about-header-right {
+        gap: 16px;
+    }
+}
+
+/* Large Mobile / Small Tablet */
+@media (max-width: 768px) {
+    .about-header {
+        padding: 12px 20px;
+    }
+
+    .about-title {
+        font-size: 1.125rem;
+    }
+
+    .about-nav {
+        gap: 16px;
+    }
+
+    .about-nav a {
+        font-size: 0.9rem;
+    }
+
+    .about-resume-btn {
+        min-width: 76px;
+        height: 36px;
+        font-size: 0.9rem;
+        padding: 0 12px;
+    }
+}
+
+/* Mobile First Breakpoint - DROPDOWN FUNCTIONALITY */
+@media (max-width: 640px) {
+    .about-header {
+        padding: 10px 16px;
+    }
+
+    .about-header-left {
+        gap: 12px;
+    }
+
+    .about-logo {
+        width: 24px;
+        height: 24px;
+    }
+
+    .about-title {
+        font-size: 1rem;
+    }
+
+    /* Show mobile toggle */
+    .about-mobile-toggle {
+        display: flex;
+    }
+
+    /* Mobile dropdown nav */
+    .about-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--about-bg, #fff);
+        border-bottom: 1px solid var(--about-accent);
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 100;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    .about-nav.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        max-height: 300px;
+    }
+
+    .about-nav a {
+        padding: 16px 20px;
+        border-bottom: 1px solid var(--about-accent);
+        font-size: 1rem;
+        display: block;
+        transition: background-color 0.2s ease;
+    }
+
+    .about-nav a:hover {
+        background-color: #f8f7f5;
+    }
+
+    .about-nav a:last-child {
+        border-bottom: none;
+    }
+
+    .about-resume-btn {
+        min-width: 70px;
+        height: 32px;
+        font-size: 0.85rem;
+        padding: 0 10px;
+    }
+}
+
+/* Very Small Mobile */
+@media (max-width: 480px) {
+    .about-header {
+        padding: 8px 12px;
+    }
+
+    .about-header-left {
+        gap: 8px;
+    }
+
+    .about-logo {
+        width: 20px;
+        height: 20px;
+    }
+
+    .about-title {
+        font-size: 0.9rem;
+    }
+
+    .about-resume-btn {
+        min-width: 60px;
+        height: 28px;
+        font-size: 0.8rem;
+        padding: 0 8px;
+        border-radius: 6px;
+    }
+
+    .about-nav a {
+        padding: 14px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Extra Small Mobile (iPhone SE, etc.) */
+@media (max-width: 375px) {
+    .about-header {
+        padding: 6px 10px;
+    }
+
+    .about-header-left {
+        gap: 6px;
+    }
+
+    .about-title {
+        font-size: 0.85rem;
+    }
+
+    .about-resume-btn {
+        min-width: 50px;
+        height: 26px;
+        font-size: 0.75rem;
+        padding: 0 6px;
+    }
+}
+
+/* Landscape Mobile */
+@media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
+    .about-header {
+        padding: 8px 20px;
+    }
+
+    .about-logo {
+        width: 22px;
+        height: 22px;
+    }
+
+    .about-title {
+        font-size: 1rem;
+    }
+
+    .about-resume-btn {
+        height: 30px;
+        font-size: 0.85rem;
+    }
+
+    .about-nav a {
+        padding: 12px 20px;
+    }
+}
+
+/* High DPI / Retina Display Adjustments */
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .about-mobile-toggle span {
+        height: 1.5px;
+    }
+}
+
+/* Ensure dropdown closes when clicking outside */
+.about-nav.active+.about-resume-btn {
+    z-index: 90;
+}
