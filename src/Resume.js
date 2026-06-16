@@ -5,7 +5,7 @@ import Navbar from './Navbar';
 const Resume = () => {
   return (
     <div className="resume-container">
-        <Navbar />
+      <Navbar />
       <div className="layout-container">
         <div className="content-wrapper">
           <div className="resume-content">
@@ -78,7 +78,7 @@ const Resume = () => {
             {/* Projects Section */}
             <section className="resume-section">
               <h2 className="section-title">Projects</h2>
-              
+
               <div className="experience-item">
                 <div className="experience-content">
                   <h3 className="job-title">Cafeteria Management System</h3>
@@ -106,6 +106,36 @@ const Resume = () => {
                   <p>Personal Project</p>
                 </div>
               </div>
+
+              <div className="experience-item">
+                <div className="experience-content">
+                  <h3 className="job-title">AI Image Generator</h3>
+                  <p className="job-description">
+                    Tech Skills - MongoDB, Express.js, React.js, Node.js, Stable diffusion , Cloudinary. Developed an AI-powered Image Generator using the MERN stack 
+                    integrated with the Stable Diffusion API for text-to-image generation. Utilized Cloudinary for efficient image storage, optimization, and delivery. 
+                    Implemented real-time image generation with loading states and error handling. Designed a responsive gallery interface to display generated images seamlessly.
+                  </p>
+                </div>
+                <div className="company-name">
+                  <p>Personal Project</p>
+                </div>
+              </div>
+
+              <div className="experience-item">
+                <div className="experience-content">
+                  <h3 className="job-title">Resume Analyzer</h3>
+                  <p className="job-description">
+                    Tech Skills - MongoDB, Express.js, React.js, Node.js, N8N. Developed an AI-powered Resume Analyzer using the MERN stack with an n8n workflow
+                     for automated resume and job description comparison. Utilized the n8n workflow to receive extracted text from resumes and job descriptions, 
+                     leveraging AI to analyze and compare them. Implemented scoring algorithms to generate match percentages and actionable suggestions for improvement.
+                      Designed a clean interface for uploading resumes and viewing detailed analysis results.
+                  </p>
+                </div>
+                <div className="company-name">
+                  <p>Personal Project</p>
+                </div>
+              </div>
+
             </section>
           </div>
         </div>

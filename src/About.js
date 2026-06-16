@@ -39,7 +39,8 @@ function About() {
                                 "Redux",
                                 "Socket.IO",
                                 "Git & GitHub",
-                                "Agile Methodologies"
+                                "Agile Methodologies",
+                                "N8N"
                             ].map((skill) => (
                                 <div className="about-skill" key={skill}>
                                     <p>{skill}</p>
