@@ -23,7 +23,7 @@ function About() {
                             </div>
                         </div>
                         <p className="about-description">
-                          MERN Stack Developer skilled in building responsive, high-performance web apps with MongoDB, Express.js, React.js, and Node.js, specializing in RESTful APIs, Redux, and real-time features.
+                            MERN Stack Developer skilled in building responsive, high-performance web apps with MongoDB, Express.js, React.js, and Node.js, specializing in RESTful APIs, Redux, and real-time features.
                         </p>
                         <h2 className="about-section-title">Skills</h2>
                         <div className="about-skills">
@@ -31,16 +31,22 @@ function About() {
                                 "UI/UX Design",
                                 "Responsive Design",
                                 "JavaScript",
-                                "React.js", 
+                                "React.js",
                                 "Node.js",
                                 "Express.js",
-                                "MongoDB", 
+                                "MongoDB",
                                 "RESTful APIs",
+                                "JWT/OAuth",
+                                "Incident Management",
                                 "Redux",
                                 "Socket.IO",
                                 "Git & GitHub",
                                 "Agile Methodologies",
-                                "N8N"
+                                "N8N",
+                                "ServiceNow",
+                                "Splunk",
+                                "JIRA",
+                                "Docker (Basic)"
                             ].map((skill) => (
                                 <div className="about-skill" key={skill}>
                                     <p>{skill}</p>
@@ -56,8 +62,8 @@ function About() {
                                     </svg>
                                 </div>
                                 <div className="about-experience-details">
-                                    <p className="about-experience-role">Support Executive at Tata Consultancy Services .</p>
-                                    <p className="about-experience-duration">2024 - Present</p>
+                                    <p className="about-experience-role">Application Support Engineer at Tata Consultancy Services .</p>
+                                    <p className="about-experience-duration">May 2024 - Present</p>
                                 </div>
                             </div>
                         </div>

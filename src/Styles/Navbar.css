@@ -2,8 +2,10 @@
     --about-primary: #181611;
     --about-secondary: #8a7e60;
     --about-accent: #f5f3f0;
+    --about-bg: #fff;
 }
 
+/* Header Styles */
 .about-header {
     display: flex;
     align-items: center;
@@ -13,9 +15,9 @@
     background: var(--about-bg, #fff);
     position: relative;
     animation: slideDown 0.6s ease-out 0.2s forwards;
+    z-index: 1000;
 }
 
-/* Slide-down animation for navbar */
 @keyframes slideDown {
     from {
         transform: translateY(-100%);
@@ -28,20 +30,10 @@
     }
 }
 
-
 .about-header-left {
     display: flex;
     align-items: center;
     gap: 16px;
-}
-
-.about-logo {
-    width: 28px;
-    height: 28px;
-    color: var(--about-primary);
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
 }
 
 .about-title {
@@ -56,8 +48,10 @@
     display: flex;
     align-items: center;
     gap: 24px;
+    position: relative;
 }
 
+/* Desktop Navigation */
 .about-nav {
     display: flex;
     gap: 28px;
@@ -93,6 +87,7 @@
     justify-content: center;
     transition: all 0.2s ease;
     white-space: nowrap;
+    text-decoration: none;
 }
 
 .about-resume-btn:hover {
@@ -100,35 +95,160 @@
     transform: scale(1.05);
 }
 
-/* Mobile Menu Toggle */
+/* Mobile Menu Toggle (Hamburger) */
 .about-mobile-toggle {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    padding: 4px;
-    gap: 3px;
-    z-index: 110;
+    padding: 8px;
+    gap: 4px;
+    z-index: 1001;
+    background: transparent;
+    border: none;
 }
 
 .about-mobile-toggle span {
-    width: 20px;
-    height: 2px;
+    width: 24px;
+    height: 2.5px;
     background: var(--about-primary);
     transition: all 0.3s ease;
-    border-radius: 1px;
+    border-radius: 2px;
     transform-origin: center;
+    display: block;
 }
 
 .about-mobile-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+    transform: rotate(45deg) translate(6px, 6px);
 }
 
 .about-mobile-toggle.active span:nth-child(2) {
     opacity: 0;
+    transform: scaleX(0);
 }
 
 .about-mobile-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile Overlay */
+.about-mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.about-mobile-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Mobile Menu */
+.about-mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 320px;
+    height: 100vh;
+    background: var(--about-bg, #fff);
+    z-index: 1000;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    padding: 80px 30px 30px;
+}
+
+.about-mobile-menu.active {
+    right: 0;
+}
+
+/* Mobile Menu Close Button */
+.about-mobile-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.about-mobile-close-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+    transform: rotate(90deg);
+}
+
+.about-mobile-close-btn span {
+    position: absolute;
+    width: 24px;
+    height: 2.5px;
+    background: var(--about-primary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.about-mobile-close-btn span:nth-child(1) {
+    transform: rotate(45deg);
+}
+
+.about-mobile-close-btn span:nth-child(2) {
+    transform: rotate(-45deg);
+}
+
+.about-mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.about-mobile-nav a {
+    color: var(--about-primary);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--about-accent);
+    transition: all 0.2s ease;
+    display: block;
+}
+
+.about-mobile-nav a:last-child {
+    border-bottom: none;
+}
+
+.about-mobile-nav a:hover {
+    color: var(--about-secondary);
+    padding-left: 8px;
+}
+
+.about-mobile-resume-btn {
+    margin-top: 20px !important;
+    background: #f4c652 !important;
+    text-align: center !important;
+    padding: 14px !important;
+    border-radius: 8px !important;
+    font-weight: bold !important;
+    border-bottom: none !important;
+}
+
+.about-mobile-resume-btn:hover {
+    background: #eab308 !important;
+    padding-left: 14px !important;
 }
 
 /* Tablet Responsive */
@@ -172,7 +292,7 @@
     }
 }
 
-/* Mobile First Breakpoint - DROPDOWN FUNCTIONALITY */
+/* Mobile First Breakpoint - SHOW MOBILE MENU */
 @media (max-width: 640px) {
     .about-header {
         padding: 10px 16px;
@@ -182,13 +302,13 @@
         gap: 12px;
     }
 
-    .about-logo {
-        width: 24px;
-        height: 24px;
-    }
-
     .about-title {
         font-size: 1rem;
+    }
+
+    /* Hide desktop navigation */
+    .about-nav {
+        display: none;
     }
 
     /* Show mobile toggle */
@@ -196,55 +316,9 @@
         display: flex;
     }
 
-    /* Mobile dropdown nav */
-    .about-nav {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: var(--about-bg, #fff);
-        border-bottom: 1px solid var(--about-accent);
-        flex-direction: column;
-        gap: 0;
-        padding: 0;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        z-index: 100;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-10px);
-        transition: all 0.3s ease;
-        max-height: 0;
-        overflow: hidden;
-    }
-
-    .about-nav.active {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-        max-height: 300px;
-    }
-
-    .about-nav a {
-        padding: 16px 20px;
-        border-bottom: 1px solid var(--about-accent);
-        font-size: 1rem;
-        display: block;
-        transition: background-color 0.2s ease;
-    }
-
-    .about-nav a:hover {
-        background-color: #f8f7f5;
-    }
-
-    .about-nav a:last-child {
-        border-bottom: none;
-    }
-
-    .about-resume-btn {
-        min-width: 70px;
-        height: 32px;
-        font-size: 0.85rem;
-        padding: 0 10px;
+    /* Hide desktop resume button on mobile */
+    .about-header-right .about-resume-btn {
+        display: none;
     }
 }
 
@@ -258,26 +332,30 @@
         gap: 8px;
     }
 
-    .about-logo {
-        width: 20px;
-        height: 20px;
-    }
-
     .about-title {
         font-size: 0.9rem;
     }
 
-    .about-resume-btn {
-        min-width: 60px;
-        height: 28px;
-        font-size: 0.8rem;
-        padding: 0 8px;
-        border-radius: 6px;
+    .about-mobile-menu {
+        width: 85%;
+        padding: 70px 20px 20px;
     }
 
-    .about-nav a {
-        padding: 14px 16px;
-        font-size: 0.9rem;
+    .about-mobile-nav a {
+        font-size: 1.1rem;
+        padding: 14px 0;
+    }
+
+    .about-mobile-close-btn {
+        top: 15px;
+        right: 15px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .about-mobile-close-btn span {
+        width: 20px;
+        height: 2px;
     }
 }
 
@@ -295,11 +373,26 @@
         font-size: 0.85rem;
     }
 
-    .about-resume-btn {
-        min-width: 50px;
-        height: 26px;
-        font-size: 0.75rem;
-        padding: 0 6px;
+    .about-mobile-menu {
+        width: 90%;
+        padding: 60px 16px 16px;
+    }
+
+    .about-mobile-nav a {
+        font-size: 1rem;
+        padding: 12px 0;
+    }
+
+    .about-mobile-close-btn {
+        top: 12px;
+        right: 12px;
+        width: 32px;
+        height: 32px;
+    }
+
+    .about-mobile-close-btn span {
+        width: 18px;
+        height: 2px;
     }
 }
 
@@ -307,11 +400,6 @@
 @media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
     .about-header {
         padding: 8px 20px;
-    }
-
-    .about-logo {
-        width: 22px;
-        height: 22px;
     }
 
     .about-title {
@@ -323,20 +411,19 @@
         font-size: 0.85rem;
     }
 
-    .about-nav a {
-        padding: 12px 20px;
+    .about-mobile-menu {
+        padding: 60px 30px 20px;
     }
-}
 
-/* High DPI / Retina Display Adjustments */
-@media (-webkit-min-device-pixel-ratio: 2),
-(min-resolution: 192dpi) {
-    .about-mobile-toggle span {
-        height: 1.5px;
+    .about-mobile-nav a {
+        padding: 10px 0;
+        font-size: 1rem;
     }
-}
 
-/* Ensure dropdown closes when clicking outside */
-.about-nav.active+.about-resume-btn {
-    z-index: 90;
+    .about-mobile-close-btn {
+        top: 12px;
+        right: 12px;
+        width: 32px;
+        height: 32px;
+    }
 }
