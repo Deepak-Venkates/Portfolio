@@ -33,7 +33,7 @@ const Portfolio = () => {
             id: 4,
             name: "Ai Resume Analyzer",
             description: "AI-powered resume analyzer that evaluates and scores resumes against job descriptions. Built with n8n workflow automation to provide instant feedback and improvement suggestions.",
-            technologies: ["React", "Node Js", "Express js", "Node js", "N8N"],
+            technologies: ["React", "MongoDB", "Express js", "Node js", "N8N"],
             image: ResumeAnalyser
         }
     ];
